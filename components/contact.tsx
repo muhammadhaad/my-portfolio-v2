@@ -8,7 +8,7 @@ import Link from "next/link"
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-16">
+    <section id="contact" className="py-16 scroll-mt-16">
       <h2 className="text-3xl font-bold mb-8">Get In Touch</h2>
 
       <div className="grid md:grid-cols-2 gap-8">

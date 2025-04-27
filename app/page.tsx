@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Navbar />
-      <div className="container mx-auto px-4 py-8 max-w-5xl">
-        <Hero />
+      <Hero />
+      <div id="main-content" className="container mx-auto px-4 py-8 max-w-5xl">
         <Experience />
         <Projects />
         <Skills />

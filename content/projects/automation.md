@@ -1,14 +1,13 @@
 ---
-title: "Automation"
+title: "Automation Tools"
 description: "Created web scrapers to extract structured data from job listings and e-commerce websites."
 image: "/placeholder.svg?height=300&width=600"
 technologies: ["Python", "BeautifulSoup", "Pandas"]
-liveUrl: "#"
 githubUrl: "https://github.com/muhammadhaad/data-extraction-tools"
 order: 3
 ---
 
-# Data Extraction Tools
+# Automation Tools
 
 A collection of web scrapers and data processing tools designed to extract structured information from various online sources.
 

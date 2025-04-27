@@ -5,10 +5,13 @@ import Link from "next/link"
 import { Menu, X, Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { siteConfig } from "@/lib/data"
+import { ThemeToggle } from "@/components/theme-toggle"
+import { ThemeSettings } from "@/components/theme-settings"
 
 export default function Navbar() {
   const [currentTime, setCurrentTime] = useState("")
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     const updateTime = () => {
@@ -22,15 +25,38 @@ export default function Navbar() {
       setCurrentTime(now.toLocaleTimeString("en-US", options))
     }
 
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true)
+      } else {
+        setScrolled(false)
+      }
+    }
+
     updateTime()
     const interval = setInterval(updateTime, 60000)
 
-    return () => clearInterval(interval)
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll)
+
+    return () => {
+      clearInterval(interval)
+      window.removeEventListener("scroll", handleScroll)
+    }
   }, [])
 
   return (
-    <nav className="py-4 border-b border-border sticky top-0 z-50 bg-background/80 backdrop-blur-sm">
-      <div className="container mx-auto px-4 max-w-5xl flex justify-between items-center">
+    <nav
+      className={`py-4 sticky top-0 z-50 transition-all duration-300 ${
+        scrolled ? "bg-background/80 backdrop-blur-sm border-b border-border" : "bg-transparent"
+      }`}
+    >
+      {/* Skip to content link for accessibility */}
+      <a href="#main-content" className="skip-to-content">
+        Skip to content
+      </a>
+
+      <div className="container mx-auto px-4 max-w-6xl flex justify-between items-center">
         <div className="text-sm text-muted-foreground">
           {currentTime}, {siteConfig.location}
         </div>
@@ -58,11 +84,18 @@ export default function Navbar() {
               CV
             </Button>
           </a>
+
+          {/* Theme toggle */}
+          <div className="ml-2 flex items-center">
+            <ThemeToggle />
+            <ThemeSettings />
+          </div>
         </div>
 
         {/* Mobile Navigation */}
-        <div className="md:hidden">
-          <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <div className="md:hidden flex items-center">
+          <ThemeToggle />
+          <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} className="ml-2">
             {isMenuOpen ? <X /> : <Menu />}
           </Button>
         </div>
@@ -93,6 +126,9 @@ export default function Navbar() {
                 Download CV
               </Button>
             </a>
+            <div className="pt-2 flex items-center">
+              <ThemeSettings />
+            </div>
           </div>
         </div>
       )}
