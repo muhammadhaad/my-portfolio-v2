@@ -4,9 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X, Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
-// Replace with your actual CV file URL
-const CV_URL = "https://drive.google.com/uc?export=download&id=your-file-id"
+import { siteConfig } from "@/lib/data"
 
 export default function Navbar() {
   const [currentTime, setCurrentTime] = useState("")
@@ -33,7 +31,9 @@ export default function Navbar() {
   return (
     <nav className="py-4 border-b border-border sticky top-0 z-50 bg-background/80 backdrop-blur-sm">
       <div className="container mx-auto px-4 max-w-5xl flex justify-between items-center">
-        <div className="text-sm text-muted-foreground">{currentTime}, Rawalpindi, Pakistan</div>
+        <div className="text-sm text-muted-foreground">
+          {currentTime}, {siteConfig.location}
+        </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-1">
@@ -52,7 +52,7 @@ export default function Navbar() {
           <Button variant="ghost" asChild>
             <Link href="#contact">Contact</Link>
           </Button>
-          <a href={CV_URL} download="Muhammad_Haad_CV.pdf" className="ml-2">
+          <a href={siteConfig.cvDownloadUrl} download="Muhammad_Haad_CV.pdf" className="ml-2">
             <Button variant="outline" size="sm" className="gap-1">
               <Download className="h-3 w-3" />
               CV
@@ -87,7 +87,7 @@ export default function Navbar() {
             <Button variant="ghost" asChild onClick={() => setIsMenuOpen(false)}>
               <Link href="#contact">Contact</Link>
             </Button>
-            <a href={CV_URL} download="Muhammad_Haad_CV.pdf" onClick={() => setIsMenuOpen(false)}>
+            <a href={siteConfig.cvDownloadUrl} download="Muhammad_Haad_CV.pdf" onClick={() => setIsMenuOpen(false)}>
               <Button variant="outline" className="w-full gap-2">
                 <Download className="h-4 w-4" />
                 Download CV

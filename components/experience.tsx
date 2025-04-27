@@ -1,7 +1,45 @@
 import { Badge } from "@/components/ui/badge"
+import { getContentByType } from "@/lib/markdown"
 
-export default function Experience() {
-  const experiences = [
+interface Experience {
+  title: string
+  company: string
+  location: string
+  period: string
+  responsibilities: string[]
+  technologies: string[]
+}
+
+async function getExperiences(): Promise<Experience[]> {
+  try {
+    const experiences = await getContentByType("experience")
+    return experiences.map((exp) => {
+      // Split content by lines and filter out empty lines to get responsibilities
+      const responsibilities = exp.content
+        .split("\n")
+        .filter((line) => line.trim().startsWith("-"))
+        .map((line) => line.trim().substring(2).trim())
+
+      return {
+        title: exp.data.title,
+        company: exp.data.company,
+        location: exp.data.location,
+        period: exp.data.period,
+        responsibilities,
+        technologies: exp.data.technologies || [],
+      }
+    })
+  } catch (error) {
+    console.error("Error fetching experiences:", error)
+    return []
+  }
+}
+
+export default async function Experience() {
+  const experiences = await getExperiences()
+
+  // Fallback experiences if no markdown files exist yet
+  const fallbackExperiences = [
     {
       title: "Full Stack Developer",
       company: "Sahl (Remote)",
@@ -44,12 +82,14 @@ export default function Experience() {
     },
   ]
 
+  const displayExperiences = experiences.length > 0 ? experiences : fallbackExperiences
+
   return (
     <section id="experience" className="py-16">
       <h2 className="text-3xl font-bold mb-12">Experience</h2>
 
       <div className="space-y-12">
-        {experiences.map((exp, index) => (
+        {displayExperiences.map((exp, index) => (
           <div key={index} className="grid md:grid-cols-[200px_1fr] gap-8">
             <div className="text-sm text-muted-foreground">{exp.period}</div>
             <div className="space-y-4">
