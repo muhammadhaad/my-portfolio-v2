@@ -18,13 +18,13 @@ import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Slider } from "@/components/ui/slider"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ThemePreview } from "@/components/theme-preview"
 
 export function ThemeSettings() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [fontSize, setFontSize] = useState(100)
   const [contrastMode, setContrastMode] = useState("standard")
+  const [backgroundStyle, setBackgroundStyle] = useState("none")
 
   // Avoid hydration mismatch
   useEffect(() => {
@@ -40,6 +40,13 @@ export function ThemeSettings() {
     const storedContrastMode = localStorage.getItem("contrastMode")
     if (storedContrastMode) {
       setContrastMode(storedContrastMode)
+    }
+
+    // Get stored background style
+    const storedBackgroundStyle = localStorage.getItem("backgroundStyle")
+    if (storedBackgroundStyle) {
+      setBackgroundStyle(storedBackgroundStyle)
+      applyBackgroundStyle(storedBackgroundStyle)
     }
   }, [])
 
@@ -64,6 +71,24 @@ export function ThemeSettings() {
     } else {
       setTheme(isDark ? "dark" : "light")
     }
+  }
+
+  // Apply background style
+  const applyBackgroundStyle = (style: string) => {
+    // Remove all existing background classes
+    document.body.classList.remove("bg-pattern-grid", "bg-pattern-dots")
+
+    // Apply the selected style
+    if (style !== "none") {
+      document.body.classList.add(style)
+    }
+  }
+
+  // Update background style
+  const handleBackgroundStyleChange = (value: string) => {
+    setBackgroundStyle(value)
+    localStorage.setItem("backgroundStyle", value)
+    applyBackgroundStyle(value)
   }
 
   if (!mounted) {
@@ -156,9 +181,51 @@ export function ThemeSettings() {
                   </div>
                 </RadioGroup>
               </div>
-              <div className="mt-6">
-                <Label className="mb-2 block">Preview</Label>
-                <ThemePreview />
+
+              <div className="space-y-2">
+                <Label>Background Style</Label>
+                <RadioGroup
+                  value={backgroundStyle}
+                  onValueChange={handleBackgroundStyleChange}
+                  className="grid grid-cols-3 gap-2"
+                >
+                  <div>
+                    <RadioGroupItem value="none" id="bg-none" className="sr-only" />
+                    <Label
+                      htmlFor="bg-none"
+                      className={`flex flex-col items-center justify-center rounded-md border-2 border-muted p-4 hover:bg-accent hover:text-accent-foreground ${
+                        backgroundStyle === "none" ? "border-primary" : ""
+                      }`}
+                    >
+                      <div className="w-full h-10 bg-background rounded mb-2"></div>
+                      None
+                    </Label>
+                  </div>
+                  <div>
+                    <RadioGroupItem value="bg-pattern-grid" id="bg-grid" className="sr-only" />
+                    <Label
+                      htmlFor="bg-grid"
+                      className={`flex flex-col items-center justify-center rounded-md border-2 border-muted p-4 hover:bg-accent hover:text-accent-foreground ${
+                        backgroundStyle === "bg-pattern-grid" ? "border-primary" : ""
+                      }`}
+                    >
+                      <div className="w-full h-10 bg-pattern-grid bg-background rounded mb-2"></div>
+                      Grid
+                    </Label>
+                  </div>
+                  <div>
+                    <RadioGroupItem value="bg-pattern-dots" id="bg-dots" className="sr-only" />
+                    <Label
+                      htmlFor="bg-dots"
+                      className={`flex flex-col items-center justify-center rounded-md border-2 border-muted p-4 hover:bg-accent hover:text-accent-foreground ${
+                        backgroundStyle === "bg-pattern-dots" ? "border-primary" : ""
+                      }`}
+                    >
+                      <div className="w-full h-10 bg-pattern-dots bg-background rounded mb-2"></div>
+                      Dots
+                    </Label>
+                  </div>
+                </RadioGroup>
               </div>
             </TabsContent>
 
