@@ -227,6 +227,22 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* Container responsiveness */
+  .container {
+    @apply px-4 sm:px-6 lg:px-8 mx-auto;
+    max-width: 1280px;
+  }
+
+  /* Section spacing */
+  section {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+
+  /* Consistent heading styles */
+  section > h2 {
+    @apply text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8;
+  }
 }
 
 /* Focus styles for better accessibility */
