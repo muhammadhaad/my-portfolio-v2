@@ -13,12 +13,12 @@ export default async function Hero() {
     <section className="py-16 lg:py-20">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12">
-          <div className="flex-1 text-center md:text-left">
+          <div className="flex-1 text-center md:text-left hero-content">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 tracking-tight">
-              {aboutData.greeting}
+              Hi, I'm {aboutData.name}
             </h1>
             <p className="text-xl sm:text-2xl text-muted-foreground mb-8">
-              {aboutData.tagline}
+              {aboutData.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Button size="lg" asChild>
@@ -38,7 +38,7 @@ export default async function Hero() {
               </Button>
             </div>
           </div>
-          <div className="w-48 sm:w-56 md:w-full md:max-w-sm relative mx-auto">
+          <div className="w-48 sm:w-56 md:w-full md:max-w-sm relative mx-auto hero-image">
             <div className="profile-glow">
               <Image
                 src={aboutData.profileImage}
