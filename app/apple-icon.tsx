@@ -13,7 +13,7 @@ export default function Icon() {
     // ImageResponse JSX element
     <div
       style={{
-        background: "transparent",
+        background: "#0f172a",
         width: "100%",
         height: "100%",
         display: "flex",
@@ -21,24 +21,12 @@ export default function Icon() {
         justifyContent: "center",
         borderRadius: "50%",
         overflow: "hidden",
+        fontSize: 80,
+        fontWeight: "bold",
+        color: "#ffffff",
       }}
     >
-      {/* Simple code icon */}
-      <div
-        style={{
-          display: "flex",
-          fontSize: 80,
-          fontWeight: "bold",
-          width: "100%",
-          height: "100%",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "#333",
-          color: "#61dafb",
-        }}
-      >
-        {"</>"}
-      </div>
+      MH
     </div>,
     // ImageResponse options
     {

@@ -1,66 +1,34 @@
-"use server";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { educationData } from "@/lib/static-data"
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { getContentData, type EducationData } from "@/lib/utils";
-
-export default async function Education() {
-  const educationData = await getContentData<EducationData>("education");
-
+export default function Education() {
   return (
     <section id="education" className="py-16 scroll-mt-16">
-      <h2 className="text-3xl font-bold text-center mb-8">Education</h2>
-      <div className="grid grid-cols-1 gap-6 px-4 md:px-0">
-        {educationData.map((education) => (
-          <Card key={education.id}>
-            <CardHeader>
-              <div className="flex flex-col sm:flex-row justify-between gap-2">
-                <div>
-                  <CardTitle className="text-xl">{education.degree}</CardTitle>
-                  <p className="text-muted-foreground">
-                    {education.institution}
-                  </p>
-                </div>
-                <p className="text-sm text-muted-foreground shrink-0">
-                  {education.period}
-                </p>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div
-                  className="prose dark:prose-invert max-w-none text-muted-foreground"
-                  dangerouslySetInnerHTML={{ __html: education.content }}
-                />
-                {education.languages && education.languages.length > 0 && (
-                  <div>
-                    <h3 className="font-semibold mb-2">Languages:</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {education.languages.map((language, idx) => (
-                        <Badge key={idx} variant="secondary">
-                          {language}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                )}
-                {education.courses && education.courses.length > 0 && (
-                  <div>
-                    <h3 className="font-semibold mb-2">Key Courses:</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {education.courses.map((course, idx) => (
-                        <Badge key={idx} variant="secondary">
-                          {course}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+      <h2 className="text-3xl font-bold mb-8">Education</h2>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>{educationData.degree}</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="flex justify-between items-center">
+            <p className="font-medium">{educationData.institution}</p>
+            <p className="text-muted-foreground">{educationData.period}</p>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-2">Relevant Coursework:</h3>
+            <p className="text-muted-foreground">{educationData.coursework}</p>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-2">Languages:</h3>
+            <ul className="list-disc list-inside text-muted-foreground">
+              {educationData.languages.map((language, index) => (
+                <li key={index}>{language}</li>
+              ))}
+            </ul>
+          </div>
+        </CardContent>
+      </Card>
     </section>
-  );
+  )
 }
