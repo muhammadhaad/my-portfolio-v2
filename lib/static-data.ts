@@ -5,9 +5,9 @@ export const projectsData = [
     slug: "healthcare-platform",
     title: "Healthcare Mobile Platform",
     description:
-      "Led development of a healthcare platform enabling real-time access to medical records and appointment scheduling. Available on Play Store and App Store.",
-    image: "/placeholder.svg?height=300&width=600",
-    technologies: ["Flutter", "WebSockets", "Firebase", "MySQL"],
+      "A comprehensive healthcare solution that revolutionized patient access to medical records and appointment scheduling. Reduced information delivery time by 40% and increased daily active users by 25% through intuitive UI and real-time updates.",
+    image: "/images/healthcare.png",
+    technologies: ["Flutter", "WebSockets", "Firebase", "MySQL", "RESTful APIs", "Authentication"],
     androidUrl: "https://play.google.com/store",
     iosUrl: "https://apps.apple.com",
   },
@@ -15,16 +15,17 @@ export const projectsData = [
     slug: "transportation-system",
     title: "On-Demand Transportation System",
     description:
-      "Developed a transportation service with applications for riders, drivers, and admins. Features included GPS tracking, fare calculation, and ratings.",
-    image: "/placeholder.svg?height=300&width=600",
-    technologies: ["Flutter", "Node.js", "Google Maps API", "Firebase"],
+      "Developed a full-featured transportation service with separate applications for riders, drivers, and administrators. Implemented real-time GPS tracking, automated fare calculation, and route optimization that improved driver efficiency by 15%.",
+    image: "/images/transportation.png",
+    technologies: ["Flutter", "Node.js", "Google Maps API", "Firebase", "Payment Processing", "Real-time Tracking"],
   },
   {
     slug: "data-extraction-tools",
     title: "Data Extraction Tools",
-    description: "Created web scrapers to extract structured data from job listings and e-commerce websites.",
-    image: "/placeholder.svg?height=300&width=600",
-    technologies: ["Python", "BeautifulSoup", "Pandas"],
+    description:
+      "Built a suite of web scrapers and data processing tools that extract structured information from various online sources. Automated data collection processes reduced manual effort by 80% and improved data accuracy by implementing robust validation algorithms.",
+    image: "/images/extraction.png",
+    technologies: ["Python", "BeautifulSoup", "Pandas", "Data Processing", "Automation", "Web Scraping"],
   },
 ]
 

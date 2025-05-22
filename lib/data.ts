@@ -7,9 +7,9 @@ export const siteConfig = {
   email: "m.haad997@live.com",
   phone: "+92(316) 589-0766",
   location: "Rawalpindi, Pakistan",
-  cvUrl: "https://drive.google.com/file/d/1n6MqaLKDyIEr8qWJk8uThWTD5-AK7T87/view",
-  cvDownloadUrl: "https://drive.google.com/uc?export=download&id=1n6MqaLKDyIEr8qWJk8uThWTD5-AK7T87",
-  profileImage: "/images/profile.png", // Updated path to your profile image
+  cvUrl: "https://drive.google.com/file/d/1HxUQ2foVeTIfosFn2tM16FW46yD_6vih/view?usp=drive_link",
+  cvDownloadUrl: "https://drive.google.com/uc?export=download&id=1HxUQ2foVeTIfosFn2tM16FW46yD_6vih",
+  profileImage: "/images/profile.png",
   social: {
     github: "https://github.com/muhammadhaad",
     linkedin: "https://linkedin.com/in/muhammadhaad",

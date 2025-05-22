@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   keywords: ["Software Developer", "Full Stack Developer", "Next.js", "Flutter", "NestJS", "Portfolio"],
   authors: [{ name: siteConfig.name, url: "https://github.com/muhammadhaad" }],
   creator: siteConfig.name,
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -20,12 +25,21 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} - ${siteConfig.title}`,
     description: siteConfig.description,
     siteName: `${siteConfig.name} Portfolio`,
+    images: [
+      {
+        url: "/images/profile.png",
+        width: 400,
+        height: 400,
+        alt: siteConfig.name,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} - ${siteConfig.title}`,
     description: siteConfig.description,
     creator: "@muhammadhaad",
+    images: ["/images/profile.png"],
   },
   generator: "Next.js",
   applicationName: "Muhammad Haad Portfolio",
@@ -40,6 +54,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
