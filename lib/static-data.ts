@@ -45,6 +45,19 @@ export const experiencesData = [
     technologies: ["Next.js", "NestJS", "TypeScript", "Google Cloud Platform", "RESTful APIs"],
   },
   {
+    title: "Automation Engineer",
+    company: "Freelance / Remote",
+    location: "Remote",
+    period: "2024 - Present",
+    responsibilities: [
+      "Designed and implemented workflow automations using n8n and Zapier to streamline business processes for multiple clients.",
+      "Integrated APIs and third-party services to automate repetitive tasks, saving clients significant manual effort.",
+      "Developed custom automation solutions for data synchronization, notifications, and reporting.",
+      "Provided consultation and training on automation best practices and platform usage."
+    ],
+    technologies: ["n8n", "Zapier", "Make (Integromat)", "Automate.io", "API Integration"],
+  },
+  {
     title: "Senior Software Developer",
     company: "PAF Hospital Islamabad",
     location: "Islamabad, Pakistan",
@@ -92,6 +105,10 @@ export const skillsData = [
   {
     category: "DevOps",
     skills: ["Google Cloud Platform", "Docker", "Codemagic", "Git"],
+  },
+  {
+    category: "Automation Tools",
+    skills: ["n8n", "Zapier", "Make (Integromat)", "Automate.io"],
   },
   {
     category: "Other",

@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Download, Github, Linkedin, Mail } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
-import { siteConfig, createMailtoLink } from "@/lib/data"
-import { useState } from "react"
+import { Button } from "@/components/ui/button";
+import { Download, Github, Linkedin, Mail } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { siteConfig, createMailtoLink } from "@/lib/data";
+import { useState } from "react";
 
 export default function Hero() {
-  const [imgError, setImgError] = useState(false)
+  const [imgError, setImgError] = useState(false);
 
   return (
     <section className="min-h-[100vh] flex items-center relative py-8 md:py-0">
@@ -30,17 +30,29 @@ export default function Hero() {
           {/* Text content */}
           <div className="space-y-6 order-2 lg:order-1 hero-content">
             <p className="text-lg text-muted-foreground">Hi! My Name is</p>
-            <h1 className="text-5xl md:text-7xl font-bold">{siteConfig.name}</h1>
-            <p className="text-xl max-w-2xl text-muted-foreground">{siteConfig.description}</p>
+            <h1 className="text-5xl md:text-7xl font-bold">
+              {siteConfig.name}
+            </h1>
+            <p className="text-xl max-w-2xl text-muted-foreground">
+              {siteConfig.description}
+            </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
-              <Link href={siteConfig.social.github} target="_blank" rel="noopener noreferrer">
+              <Link
+                href={siteConfig.social.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button variant="outline" size="icon">
                   <Github className="h-5 w-5" />
                   <span className="sr-only">GitHub</span>
                 </Button>
               </Link>
-              <Link href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer">
+              <Link
+                href={siteConfig.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button variant="outline" size="icon">
                   <Linkedin className="h-5 w-5" />
                   <span className="sr-only">LinkedIn</span>
@@ -52,19 +64,6 @@ export default function Hero() {
                   Email me
                 </Button>
               </Link>
-              <a
-                href={siteConfig.cvDownloadUrl}
-                download="Muhammad_Haad_CV.pdf"
-                onClick={(e) => {
-                  // Track download event if needed
-                  console.log("CV download initiated")
-                }}
-              >
-                <Button variant="default" className="gap-2">
-                  <Download className="h-4 w-4" />
-                  Download CV
-                </Button>
-              </a>
             </div>
           </div>
 
@@ -73,7 +72,11 @@ export default function Hero() {
             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-xl profile-glow">
               {/* Replace with your actual image */}
               <Image
-                src={imgError ? "/placeholder.svg?height=400&width=400" : siteConfig.profileImage}
+                src={
+                  imgError
+                    ? "/placeholder.svg?height=400&width=400"
+                    : siteConfig.profileImage
+                }
                 alt={siteConfig.name}
                 fill
                 className="object-cover"
@@ -97,5 +100,5 @@ export default function Hero() {
         </Link>
       </div>
     </section>
-  )
+  );
 }
