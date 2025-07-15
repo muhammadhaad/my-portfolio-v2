@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { educationData } from "@/lib/static-data"
+import { educationData } from "@/lib/data"
 
 export default function Education() {
   return (

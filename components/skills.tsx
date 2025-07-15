@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { skillsData } from "@/lib/static-data"
+import { skillsData } from "@/lib/data"
 
 export default function Skills() {
   return (

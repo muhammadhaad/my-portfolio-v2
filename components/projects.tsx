@@ -1,43 +1,69 @@
-import Link from "next/link"
-import { Badge } from "@/components/ui/badge"
-import { Card } from "@/components/ui/card"
-import { Apple, PlaySquare } from "lucide-react"
-import { projectsData } from "@/lib/static-data"
-import Image from "next/image"
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
+import { Apple, PlaySquare } from "lucide-react";
+import { projectsData } from "@/lib/data";
+import Image from "next/image";
 
 // Group technologies by category
 const technologyCategories = {
-  frontend: ["React.js", "Next.js", "Flutter", "HTML", "CSS", "Tailwind CSS", "UI", "UX"],
-  backend: ["Node.js", "NestJS", "Express", "RESTful APIs", "WebSockets", "GraphQL"],
+  frontend: [
+    "React.js",
+    "Next.js",
+    "Flutter",
+    "HTML",
+    "CSS",
+    "Tailwind CSS",
+    "UI",
+    "UX",
+  ],
+  backend: [
+    "Node.js",
+    "NestJS",
+    "Express",
+    "RESTful APIs",
+    "WebSockets",
+    "GraphQL",
+  ],
   database: ["Firebase", "MongoDB", "MySQL", "PostgreSQL", "Supabase"],
   mobile: ["Flutter", "React Native", "Android", "iOS"],
   tools: ["Git", "Docker", "Google Maps API", "Authentication"],
   languages: ["JavaScript", "TypeScript", "Python", "Dart"],
   libraries: ["BeautifulSoup", "Pandas"],
-}
+};
 
 // Function to categorize technologies
-function categorizeTechnologies(techs) {
-  const categorized = {}
+type TechnologyCategory = keyof typeof technologyCategories;
+type CategorizedTechnologies = {
+  [key in TechnologyCategory]?: string[];
+} & { other?: string[] };
 
-  techs.forEach((tech) => {
-    let found = false
-    for (const [category, categoryTechs] of Object.entries(technologyCategories)) {
-      if (categoryTechs.some((t) => tech.toLowerCase().includes(t.toLowerCase()))) {
-        if (!categorized[category]) categorized[category] = []
-        categorized[category].push(tech)
-        found = true
-        break
+function categorizeTechnologies(techs: string[]): CategorizedTechnologies {
+  const categorized: CategorizedTechnologies = {};
+
+  techs.forEach((tech: string) => {
+    let found = false;
+    for (const [category, categoryTechs] of Object.entries(
+      technologyCategories
+    )) {
+      if (
+        categoryTechs.some((t) => tech.toLowerCase().includes(t.toLowerCase()))
+      ) {
+        if (!categorized[category as TechnologyCategory])
+          categorized[category as TechnologyCategory] = [];
+        categorized[category as TechnologyCategory]!.push(tech);
+        found = true;
+        break;
       }
     }
 
     if (!found) {
-      if (!categorized["other"]) categorized["other"] = []
-      categorized["other"].push(tech)
+      if (!categorized["other"]) categorized["other"] = [];
+      categorized["other"]!.push(tech);
     }
-  })
+  });
 
-  return categorized
+  return categorized;
 }
 
 export default function Projects() {
@@ -47,8 +73,8 @@ export default function Projects() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {projectsData.map((project) => {
-          const categorizedTech = categorizeTechnologies(project.technologies)
-          const isHealthcareProject = project.slug === "healthcare-platform"
+          const categorizedTech = categorizeTechnologies(project.technologies);
+          const isHealthcareProject = project.slug === "healthcare-platform";
 
           return (
             <Card
@@ -71,7 +97,9 @@ export default function Projects() {
                 <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
 
                 {/* Project description */}
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-3">{project.description}</p>
+                <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                  {project.description}
+                </p>
 
                 {/* Technology categories - simplified */}
                 <div className="mt-auto">
@@ -81,11 +109,17 @@ export default function Projects() {
                         {category.charAt(0).toUpperCase() + category.slice(1)}
                       </h4>
                       <div className="flex flex-wrap gap-1">
-                        {techs.map((tech, idx) => (
-                          <Badge key={idx} variant="outline" className="text-xs px-1.5 py-0">
-                            {tech}
-                          </Badge>
-                        ))}
+                        {(techs as string[]).map(
+                          (tech: string, idx: number) => (
+                            <Badge
+                              key={idx}
+                              variant="outline"
+                              className="text-xs px-1.5 py-0"
+                            >
+                              {tech}
+                            </Badge>
+                          )
+                        )}
                       </div>
                     </div>
                   ))}
@@ -123,9 +157,9 @@ export default function Projects() {
                 )}
               </div>
             </Card>
-          )
+          );
         })}
       </div>
     </section>
-  )
+  );
 }

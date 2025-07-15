@@ -3,7 +3,7 @@ export const siteConfig = {
   name: "Muhammad Haad Bin Zahid",
   title: "Software Developer",
   description:
-    "Versatile Full Stack Developer and Automation Engineer with 4+ years of web, mobile, and workflow automation expertise. Specialized in Next.js, NestJS, Flutter, and automation platforms like n8n and Zapier. Proven record of delivering secure, high-performance applications and streamlining business processes through advanced automation.",
+    "Transforming complex business challenges into efficient digital solutions. Expert in healthcare technology and automation systems, with a proven track record of improving operational efficiency and serving thousands of daily users.\n\nBuilding the future of healthcare technology, one application at a time.",
   email: "m.haad997@live.com",
   phone: "+92(316) 589-0766",
   location: "Rawalpindi, Pakistan",
@@ -14,6 +14,134 @@ export const siteConfig = {
     github: "https://github.com/muhammadhaad",
     linkedin: "https://linkedin.com/in/muhammadhaad",
   },
+}
+
+export const projectsData = [
+  {
+    slug: "healthcare-platform",
+    title: "Healthcare Mobile Platform",
+    description:
+      "A comprehensive healthcare solution that revolutionized patient access to medical records and appointment scheduling. Built with Flutter and real-time WebSocket integration, this platform reduced information delivery time by 40% and increased daily active users by 25% through intuitive UI design and seamless real-time updates. Features secure authentication, automated appointment reminders, and HIPAA-compliant data handling.",
+    image: "/images/healthcare.png",
+    technologies: ["Flutter", "WebSockets", "Firebase", "MySQL", "RESTful APIs", "JWT Authentication"],
+    androidUrl: "https://play.google.com/store",
+    iosUrl: "https://apps.apple.com",
+  },
+  {
+    slug: "transportation-system",
+    title: "On-Demand Transportation System",
+    description:
+      "Developed a full-featured transportation service with separate applications for riders, drivers, and administrators. Implemented real-time GPS tracking, automated fare calculation, and intelligent route optimization that improved driver efficiency by 15%. Features include live location sharing, payment processing integration, driver rating system, and comprehensive admin dashboard for fleet management.",
+    image: "/images/transportation.png",
+    technologies: ["Flutter", "Node.js", "Google Maps API", "Firebase", "Payment Processing", "Real-time Tracking"],
+  },
+  {
+    slug: "data-extraction-tools",
+    title: "Data Extraction & Processing Suite",
+    description:
+      "Built a comprehensive suite of web scrapers and data processing tools that extract structured information from various online sources. Automated data collection processes reduced manual effort by 80% and improved data accuracy through robust validation algorithms. Features include scheduled scraping, data transformation pipelines, duplicate detection, and export capabilities to multiple formats.",
+    image: "/images/extraction.png",
+    technologies: ["Python", "BeautifulSoup", "Pandas", "Data Processing", "Automation", "Web Scraping"],
+  },
+]
+
+export const experiencesData = [
+  {
+    title: "Full Stack Developer",
+    company: "Sahl",
+    location: "Riyadh, Saudi Arabia (Remote)",
+    period: "Mar 2025 - Present",
+    responsibilities: [
+      "Develop scalable web applications using Next.js frontend and NestJS backend with TypeScript, serving enterprise-level clients.",
+      "Configure Google Cloud Platform deployments with advanced security measures, implementing IAM policies and VPC configurations.",
+      "Create comprehensive shell scripts to automate GCP security configurations, service account management, and deployment pipelines.",
+      "Design and implement RESTful APIs with robust error handling, ensuring seamless frontend-backend integration and optimal performance.",
+      "Lead technical architecture planning with focus on security, scalability, and performance optimization for high-traffic applications.",
+    ],
+    technologies: ["Next.js", "NestJS", "TypeScript", "Google Cloud Platform", "RESTful APIs"],
+  },
+  {
+    title: "Automation Engineer",
+    company: "Freelance / Remote",
+    location: "Remote",
+    period: "2024 - Present",
+    responsibilities: [
+      "Designed and implemented workflow automations using n8n, Zapier, and Make to streamline business processes for 20+ clients across various industries.",
+      "Integrated 50+ APIs and third-party services to automate repetitive tasks, saving clients an average of 80% manual effort per process.",
+      "Developed custom automation solutions for data synchronization, email marketing, CRM integration, notifications, and comprehensive reporting systems.",
+      "Provided consultation and training on automation best practices, platform usage, and workflow optimization to client teams.",
+      "Built custom connectors and webhooks for specialized business requirements not covered by standard automation tools."
+    ],
+    technologies: ["n8n", "Zapier", "Make (Integromat)", "Automate.io", "API Integration"],
+  },
+  {
+    title: "Senior Software Developer",
+    company: "PAF Hospital Islamabad",
+    location: "Islamabad, Pakistan",
+    period: "Jan 2023 - Feb 2025",
+    responsibilities: [
+      "Integrated WebSockets for real-time updates in hospital mobile app, reducing information delivery time by 40% and improving patient experience.",
+      "Developed key mobile app features including appointment scheduling, lab results viewing, and prescription management that increased daily active users by 25%.",
+      "Optimized backend APIs and database queries, reducing response times by 30% and improving overall system performance.",
+      "Collaborated directly with medical staff and administrators to implement healthcare workflows into digital solutions, ensuring compliance with medical standards.",
+      "Implemented comprehensive security measures for patient data protection, including encryption, access controls, and audit logging."
+    ],
+    technologies: ["Flutter", "WebSockets", "APIs", "Healthcare Solutions"],
+  },
+  {
+    title: "Software Developer",
+    company: "Air Headquarters — Astrontech",
+    location: "Islamabad, Pakistan",
+    period: "Jul 2021 - Dec 2022",
+    responsibilities: [
+      "Built Flutter-based mobile applications used by 5,000+ daily users in a hospital environment, focusing on user experience and performance optimization.",
+      "Developed a comprehensive Queue Management System with thermal printer integration, reducing patient wait times by 20% and improving service efficiency.",
+      "Created a real-time dashboard for hospital resource monitoring used by 15+ departments, providing insights into bed availability, staff allocation, and equipment status.",
+      "Implemented secure authentication systems with role-based access control ensuring patient data privacy and HIPAA compliance.",
+      "Conducted code reviews, mentored junior developers, and established development best practices for the team."
+    ],
+    technologies: ["Flutter", "Mobile Development", "Queue Management", "Authentication"],
+  },
+]
+
+export const skillsData = [
+  {
+    category: "Frontend",
+    skills: ["Next.js", "React.js", "Flutter", "HTML5/CSS3", "Tailwind CSS", "Responsive Design"],
+  },
+  {
+    category: "Backend",
+    skills: ["NestJS", "Node.js", "RESTful APIs", "WebSockets", "Microservices"],
+  },
+  {
+    category: "Programming",
+    skills: ["JavaScript", "TypeScript", "Dart", "Python", "Shell Scripting"],
+  },
+  {
+    category: "Databases",
+    skills: ["PostgreSQL", "MongoDB", "Firebase", "MySQL", "Database Design"],
+  },
+  {
+    category: "DevOps",
+    skills: ["Google Cloud Platform", "Docker", "CI/CD", "Codemagic", "Git"],
+  },
+  {
+    category: "Automation Tools",
+    skills: ["n8n", "Zapier", "Make (Integromat)", "Automate.io", "API Integration"],
+  },
+  {
+    category: "Other",
+    skills: ["Shell Scripting", "JWT Authentication", "Jira", "Agile Methodologies", "Test-Driven Development"],
+  },
+]
+
+export const educationData = {
+  degree: "Bachelor of Science in Computer Science",
+  institution: "PMAS ARID Agricultural University",
+  period: "2016 - 2020",
+  coursework:
+    "Software Engineering, Data Structures & Algorithms, Database Systems, Web Development, Computer Networks, Artificial Intelligence, Operating Systems, Human-Computer Interaction, Software Testing, and Project Management.",
+  languages: ["Urdu (Native)", "English (Professional Working Proficiency)"],
 }
 
 // Helper function to create mailto link with subject and body

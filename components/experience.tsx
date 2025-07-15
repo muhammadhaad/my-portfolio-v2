@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge"
-import { experiencesData } from "@/lib/static-data"
+import { experiencesData } from "@/lib/data"
 
 export default function Experience() {
   return (
