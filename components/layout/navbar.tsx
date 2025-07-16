@@ -6,7 +6,6 @@ import { Menu, X, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/lib/data";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { ThemeSettings } from "@/components/theme-settings";
 
 export default function Navbar() {
   const [currentTime, setCurrentTime] = useState("");
@@ -106,9 +105,6 @@ export default function Navbar() {
 
             {/* Theme toggle */}
             <ThemeToggle />
-            <div className="hidden sm:block">
-              <ThemeSettings />
-            </div>
 
             {/* Mobile menu button */}
             <Button
@@ -176,9 +172,6 @@ export default function Navbar() {
                 Download CV
               </Button>
             </a>
-            <div className="pt-2">
-              <ThemeSettings />
-            </div>
           </div>
         </div>
       )}

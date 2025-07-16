@@ -5,18 +5,9 @@ import type { ThemeProviderProps } from "next-themes"
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return (
     <NextThemesProvider
-      themes={[
-        "light",
-        "dark",
-        "light-high-contrast",
-        "dark-high-contrast",
-        "light-soft",
-        "light-neutral",
-        "light-cool",
-        "dark-deep",
-        "dark-warm",
-        "dark-cool",
-      ]}
+      themes={["light", "dark", "system"]}
+      defaultTheme="system"
+      enableSystem
       {...props}
     >
       {children}
