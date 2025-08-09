@@ -1,0 +1,67 @@
+{
+  "posts": [
+    {
+      "id": "modern-web-development-2024",
+      "title": "Modern Web Development Trends in 2024",
+      "description": "Exploring the latest trends in web development including AI integration, micro-frontends, and serverless architecture.",
+      "date": "2024-01-15",
+      "type": "local",
+      "slug": "modern-web-development-2024",
+      "tags": ["web-development", "trends", "2024", "javascript"],
+      "readTime": "5 min read",
+      "featured": true
+    },
+    {
+      "id": "nextjs-performance-optimization",
+      "title": "Next.js Performance Optimization Techniques",
+      "description": "A comprehensive guide to optimizing Next.js applications for better performance and user experience.",
+      "date": "2024-02-10",
+      "type": "local",
+      "slug": "nextjs-performance-optimization",
+      "tags": ["nextjs", "performance", "optimization", "react"],
+      "readTime": "8 min read",
+      "featured": false
+    },
+    {
+      "id": "medium-automation-article",
+      "title": "Building Automation Tools with Python",
+      "description": "How I built custom automation tools to streamline repetitive tasks and improve productivity.",
+      "date": "2024-01-20",
+      "type": "external",
+      "url": "https://medium.com/@your-username/building-automation-tools-with-python",
+      "platform": "Medium",
+      "tags": ["python", "automation", "productivity"],
+      "readTime": "6 min read",
+      "featured": true
+    },
+    {
+      "id": "linkedin-career-growth",
+      "title": "Career Growth in Tech: Lessons Learned",
+      "description": "Sharing insights and lessons learned during my journey in the tech industry.",
+      "date": "2024-02-05",
+      "type": "external",
+      "url": "https://linkedin.com/pulse/career-growth-tech-lessons-learned-your-name",
+      "platform": "LinkedIn",
+      "tags": ["career", "tech", "growth", "advice"],
+      "readTime": "4 min read",
+      "featured": false
+    }
+  ],
+  "categories": [
+    {
+      "name": "Web Development",
+      "slug": "web-development",
+      "description": "Articles about modern web development practices and technologies"
+    },
+    {
+      "name": "Career",
+      "slug": "career",
+      "description": "Career advice and professional growth insights"
+    },
+    {
+      "name": "Automation",
+      "slug": "automation",
+      "description": "Tools and techniques for automating workflows"
+    }
+  ]
+}

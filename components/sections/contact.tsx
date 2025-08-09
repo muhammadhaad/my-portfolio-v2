@@ -8,10 +8,20 @@ import Link from "next/link"
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-16 scroll-mt-16">
-      <h2 className="text-3xl font-bold mb-8">Get In Touch</h2>
+    <section id="contact" className="section-padding scroll-mt-16">
+      <div className="section-container">
+        <div className="section-header">
+          <div className="section-badge">
+            <span className="section-badge-dot"></span>
+            Let's Connect
+          </div>
+          <h2 className="section-title">Get In Touch</h2>
+          <p className="section-description">
+            Ready to collaborate on your next project or discuss opportunities.
+          </p>
+        </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
+        <div className="responsive-grid-2">
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -60,7 +70,7 @@ export default function Contact() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
-              <h3 className="font-semibold">Email</h3>
+              <h3 className="heading-sm">Email</h3>
               <p className="text-muted-foreground">
                 <a href={`mailto:${basicInfo.email}`} className="hover:underline">
                   {basicInfo.email}
@@ -68,15 +78,15 @@ export default function Contact() {
               </p>
             </div>
             <div>
-              <h3 className="font-semibold">Phone</h3>
+              <h3 className="heading-sm">Phone</h3>
               <p className="text-muted-foreground">{basicInfo.phone}</p>
             </div>
             <div>
-              <h3 className="font-semibold">Location</h3>
+              <h3 className="heading-sm">Location</h3>
               <p className="text-muted-foreground">{basicInfo.location}</p>
             </div>
             <div>
-              <h3 className="font-semibold">Social Media</h3>
+              <h3 className="heading-sm">Social Media</h3>
               <div className="flex gap-4 mt-2">
                 <Button variant="outline" size="icon" asChild>
                   <a href={basicInfo.social.github} target="_blank" rel="noopener noreferrer">
@@ -100,6 +110,7 @@ export default function Contact() {
             </div>
           </CardContent>
         </Card>
+        </div>
       </div>
     </section>
   )

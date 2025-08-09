@@ -4,8 +4,9 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-8 border-t border-border mt-16">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+    <footer className="section-padding-sm border-t border-border mt-16">
+      <div className="section-container">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="text-sm text-muted-foreground">
           © {currentYear} Muhammad Haad Bin Zahid. All rights reserved.
         </div>
@@ -43,6 +44,7 @@ export default function Footer() {
           </Link>
         </div>
       </div>
+    </div>
     </footer>
   );
 }

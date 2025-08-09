@@ -4,48 +4,100 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
+    /* Blue-gray color palette - Light mode */
+    --background: 210 25% 95%; /* Light blue-gray */
+    --foreground: 215 25% 15%; /* Dark blue-gray */
+    --card: 210 20% 92%;
+    --card-foreground: 215 25% 15%;
+    --popover: 210 25% 95%;
+    --popover-foreground: 215 25% 15%;
+    
+    /* Teal primary palette */
+    --primary: 184 100% 27%; /* Teal #00818A */
+    --primary-foreground: 210 25% 95%;
+    --primary-hover: 184 100% 22%; /* Darker teal on hover */
+    
+    /* Medium blue-gray secondary palette */
+    --secondary: 215 20% 35%; /* Medium blue-gray #404B69 */
+    --secondary-foreground: 210 25% 95%;
+    --secondary-hover: 215 20% 30%;
+    
+    /* Muted neutral colors */
+    --muted: 210 15% 88%; /* Light muted blue-gray */
+    --muted-foreground: 215 15% 45%; /* Medium blue-gray */
+    
+    /* Accent colors - darker teal */
+    --accent: 184 80% 35%; /* Darker teal accent */
+    --accent-foreground: 210 25% 95%;
+    --accent-hover: 184 80% 30%;
+    
+    /* Status colors - updated versions */
+    --destructive: 0 50% 65%; /* Muted red */
+    --destructive-foreground: 210 25% 95%;
+    --success: 184 100% 27%; /* Teal for success */
+    --success-foreground: 210 25% 95%;
+    --warning: 35 60% 65%; /* Muted amber */
+    --warning-foreground: 215 25% 15%;
+    
+    /* Border and input - subtle */
+    --border: 210 15% 80%; /* Light blue-gray border */
+    --input: 210 15% 80%;
+    --ring: 184 100% 27%; /* Teal focus ring */
+    
+    /* Gradient colors - teal to blue-gray */
+    --gradient-from: 184 100% 27%; /* Teal */
+    --gradient-to: 215 20% 35%; /* Medium blue-gray */
+    
+    /* Animation and spacing variables */
     --radius: 0.5rem;
+    --animation-duration: 0.2s;
+    --animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    /* Blue-gray color palette - Dark mode */
+    --background: 215 25% 8%; /* Deep blue-gray #283149 */
+    --foreground: 210 25% 95%; /* Light blue-gray */
+    --card: 215 25% 10%; /* Very dark blue-gray */
+    --card-foreground: 210 25% 95%;
+    --popover: 215 25% 8%;
+    --popover-foreground: 210 25% 95%;
+    
+    /* Teal primary palette - adjusted for dark mode */
+    --primary: 184 100% 35%; /* Brighter teal for dark mode */
+    --primary-foreground: 215 25% 8%;
+    --primary-hover: 184 100% 40%; /* Lighter teal on hover */
+    
+    /* Blue-gray secondary palette for dark mode */
+    --secondary: 215 20% 40%; /* Lighter medium blue-gray */
+    --secondary-foreground: 210 25% 95%;
+    --secondary-hover: 215 20% 45%;
+    
+    /* Muted colors for dark mode */
+    --muted: 215 25% 12%; /* Very dark blue-gray */
+    --muted-foreground: 210 20% 70%; /* Light blue-gray */
+    
+    /* Accent colors - brighter teal for dark mode */
+    --accent: 184 80% 45%; /* Brighter teal accent */
+    --accent-foreground: 215 25% 8%;
+    --accent-hover: 184 80% 50%;
+    
+    /* Status colors for dark mode */
+    --destructive: 0 60% 70%; /* Brighter muted red */
+    --destructive-foreground: 210 25% 95%;
+    --success: 184 100% 35%; /* Brighter teal */
+    --success-foreground: 215 25% 8%;
+    --warning: 35 70% 70%; /* Brighter amber */
+    --warning-foreground: 215 25% 8%;
+    
+    /* Border and input for dark mode */
+    --border: 215 25% 18%; /* Dark blue-gray border */
+    --input: 215 25% 18%;
+    --ring: 184 100% 35%; /* Brighter teal focus ring */
+    
+    /* Gradient colors for dark mode */
+    --gradient-from: 184 100% 35%; /* Brighter teal */
+    --gradient-to: 215 20% 40%; /* Lighter medium blue-gray */
   }
 }
 
@@ -84,7 +136,7 @@
   @apply absolute left-0 top-2 h-2 w-2 bg-primary rounded-full;
 }
 
-/* Add a subtle animation for the hero section */
+/* Modern animation keyframes for enhanced UX */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -94,6 +146,243 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-slow-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px hsl(var(--primary) / 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.8), 0 0 30px hsl(var(--primary) / 0.4);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes particle-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-30px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(-15px) rotate(240deg);
+  }
+}
+
+/* Animation utility classes */
+.animate-fade-in {
+  animation: fadeIn 0.6s var(--animation-timing) forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s var(--animation-timing) forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s var(--animation-timing) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s var(--animation-timing) forwards;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation: spin-slow-reverse 12s linear infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.animate-particle-float {
+  animation: particle-float 6s ease-in-out infinite;
+}
+
+/* Prose styles for blog content */
+.prose {
+  color: hsl(var(--foreground));
+  max-width: none;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: hsl(var(--foreground));
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose h1 {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.prose h2 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.prose h3 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.prose p {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.75;
+}
+
+.prose a {
+  color: hsl(var(--primary));
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.prose a:hover {
+  color: hsl(var(--primary));
+  opacity: 0.8;
+}
+
+.prose strong {
+  color: hsl(var(--foreground));
+  font-weight: 600;
+}
+
+.prose code {
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--muted));
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.prose pre {
+  background-color: hsl(var(--muted));
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.prose pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.prose ul,
+.prose ol {
+  margin: 1.25rem 0;
+  padding-left: 1.625rem;
+}
+
+.prose li {
+  margin: 0.5rem 0;
+}
+
+.prose blockquote {
+  border-left: 4px solid hsl(var(--primary));
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: hsl(var(--muted-foreground));
+}
+
+.prose img {
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid hsl(var(--border));
+  margin: 2rem 0;
 }
 
 .hero-content {
@@ -154,4 +443,266 @@
 
 .project-card:hover .badge {
   @apply bg-primary/10;
+}
+
+/* Responsive Container System */
+.section-container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+  max-width: 1200px;
+}
+
+.section-container-wide {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+  max-width: 1400px;
+}
+
+.section-container-narrow {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+  max-width: 800px;
+}
+
+/* Section spacing */
+.section-padding {
+  @apply py-12 sm:py-16 lg:py-20;
+}
+
+.section-padding-sm {
+  @apply py-8 sm:py-12 lg:py-16;
+}
+
+.section-padding-lg {
+  @apply py-16 sm:py-20 lg:py-24;
+}
+
+/* Responsive grid systems */
+.responsive-grid-2 {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8;
+}
+
+.responsive-grid-3 {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8;
+}
+
+.responsive-grid-4 {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8;
+}
+
+/* Responsive typography */
+.heading-xl {
+  @apply text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold;
+}
+
+.heading-lg {
+  @apply text-2xl sm:text-3xl lg:text-4xl font-bold;
+}
+
+.heading-md {
+  @apply text-xl sm:text-2xl lg:text-3xl font-bold;
+}
+
+.heading-sm {
+  @apply text-lg sm:text-xl lg:text-2xl font-semibold;
+}
+
+/* Section header styling */
+.section-header {
+  @apply text-center mb-12 lg:mb-16;
+}
+
+.section-badge {
+  @apply inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4;
+}
+
+.section-badge-dot {
+  @apply w-2 h-2 bg-primary rounded-full animate-pulse;
+}
+
+.section-title {
+  @apply heading-xl mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent;
+}
+
+.section-description {
+  @apply text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed;
+}
+
+/* Responsive spacing utilities */
+.space-y-responsive {
+  @apply space-y-6 sm:space-y-8 lg:space-y-12;
+}
+
+.space-y-responsive-sm {
+  @apply space-y-4 sm:space-y-6 lg:space-y-8;
+}
+
+.space-y-responsive-lg {
+  @apply space-y-8 sm:space-y-12 lg:space-y-16;
+}
+
+/* Card Design System */
+.card-modern {
+  @apply relative overflow-hidden rounded-xl border border-border/50 bg-card/80 backdrop-blur-sm shadow-sm transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:border-primary/20 hover:-translate-y-1;
+}
+
+.card-modern::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 transition-opacity duration-300;
+}
+
+.card-modern:hover::before {
+  @apply opacity-100;
+}
+
+.card-header-modern {
+  @apply relative z-10 p-6 pb-4;
+}
+
+.card-content-modern {
+  @apply relative z-10 p-6 pt-0;
+}
+
+.card-footer-modern {
+  @apply relative z-10 p-6 pt-4 border-t border-border/50;
+}
+
+.card-title-modern {
+  @apply text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-200;
+}
+
+.card-subtitle-modern {
+  @apply text-sm font-medium text-muted-foreground mb-3;
+}
+
+.card-description-modern {
+  @apply text-sm text-muted-foreground leading-relaxed line-clamp-3;
+}
+
+.card-meta-modern {
+  @apply flex items-center gap-2 text-xs text-muted-foreground mb-3;
+}
+
+.card-tags-modern {
+  @apply flex flex-wrap gap-2 mt-4;
+}
+
+.card-image-modern {
+  @apply relative overflow-hidden rounded-t-xl;
+}
+
+.card-image-modern img {
+  @apply transition-transform duration-300 group-hover:scale-105;
+}
+
+/* Skill Card Specific */
+.skill-card {
+  @apply card-modern min-h-[200px] flex flex-col;
+}
+
+.skill-card.group {
+  /* Group class applied separately for hover effects */
+}
+
+.skill-category-icon {
+  @apply w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-xl mb-4 group-hover:bg-primary/20 transition-colors duration-300;
+}
+
+.skill-progress-bar {
+  @apply w-full h-2 bg-muted rounded-full overflow-hidden mb-2;
+}
+
+.skill-progress-fill {
+  @apply h-full bg-gradient-to-r from-primary to-primary/80 rounded-full transition-all duration-500;
+}
+
+/* Experience Card Specific */
+.experience-card {
+  @apply card-modern;
+}
+
+.experience-timeline {
+  @apply relative pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-primary before:to-primary/30;
+}
+
+.experience-timeline::after {
+  content: '';
+  @apply absolute left-[-4px] top-2 w-2 h-2 bg-primary rounded-full;
+}
+
+.experience-period {
+  @apply inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-3;
+}
+
+/* Education Card Specific */
+.education-card {
+  @apply card-modern;
+}
+
+.education-degree {
+  @apply flex items-start gap-4 mb-4;
+}
+
+.education-icon {
+  @apply w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-xl flex-shrink-0;
+}
+
+/* Blog Card Specific */
+.blog-card {
+  @apply card-modern cursor-pointer;
+}
+
+.blog-featured-badge {
+  @apply absolute top-4 right-4 z-20 px-2 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-full;
+}
+
+.blog-read-time {
+  @apply flex items-center gap-1 text-xs text-muted-foreground;
+}
+
+.blog-platform-badge {
+  @apply inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium;
+}
+
+/* Project Card Specific */
+.project-card {
+  @apply card-modern flex flex-col h-full;
+}
+
+.project-image-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+}
+
+.project-tech-category {
+  @apply mb-3 last:mb-0;
+}
+
+.project-tech-label {
+  @apply text-xs font-medium text-muted-foreground mb-2 uppercase tracking-wide;
+}
+
+.project-links {
+  @apply flex items-center gap-2 mt-auto pt-4;
+}
+
+.project-link {
+  @apply inline-flex items-center gap-2 px-3 py-2 bg-primary/10 hover:bg-primary/20 text-primary rounded-lg text-sm font-medium transition-colors duration-200;
+}
+
+/* Badge variants for cards */
+.badge-modern {
+  @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium transition-colors duration-200;
+}
+
+.badge-primary {
+  @apply bg-primary/10 text-primary hover:bg-primary/20;
+}
+
+.badge-secondary {
+  @apply bg-secondary/10 text-secondary hover:bg-secondary/20;
+}
+
+.badge-outline {
+  @apply border border-border/50 bg-transparent hover:bg-muted/50;
+}
+
+.badge-tech {
+  @apply bg-muted/50 text-muted-foreground hover:bg-muted border border-border/30;
 }

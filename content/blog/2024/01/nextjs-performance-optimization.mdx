@@ -1,0 +1,259 @@
+---
+title: "Next.js Performance Optimization Techniques"
+description: "A comprehensive guide to optimizing Next.js applications for better performance and user experience."
+date: "2024-02-10"
+tags: ["nextjs", "performance", "optimization", "react"]
+readTime: "8 min read"
+featured: false
+author: "Muhammad Haad"
+---
+
+# Next.js Performance Optimization Techniques
+
+Next.js provides excellent performance out of the box, but there are many techniques you can use to make your applications even faster. Let's explore the most effective optimization strategies.
+
+## Image Optimization
+
+Next.js Image component is one of the most powerful features for performance optimization:
+
+```jsx
+import Image from 'next/image';
+
+// Optimized image loading
+<Image
+  src="/hero-image.jpg"
+  alt="Hero image"
+  width={800}
+  height={600}
+  priority // Load above-the-fold images first
+  placeholder="blur"
+  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQ..."
+/>
+```
+
+### Key Benefits:
+- **Automatic WebP/AVIF conversion**
+- **Lazy loading by default**
+- **Responsive images**
+- **Blur placeholder support**
+
+## Code Splitting and Dynamic Imports
+
+Reduce initial bundle size with strategic code splitting:
+
+```jsx
+import dynamic from 'next/dynamic';
+
+// Lazy load heavy components
+const HeavyChart = dynamic(() => import('../components/HeavyChart'), {
+  loading: () => <div>Loading chart...</div>,
+  ssr: false // Disable server-side rendering if needed
+});
+
+// Conditional loading
+const AdminPanel = dynamic(() => import('../components/AdminPanel'), {
+  ssr: false
+});
+
+function Dashboard({ user }) {
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      {user.isAdmin && <AdminPanel />}
+      <HeavyChart data={chartData} />
+    </div>
+  );
+}
+```
+
+## Static Generation Optimization
+
+Leverage Next.js static generation features:
+
+### Static Site Generation (SSG)
+```jsx
+// pages/blog/[slug].js
+export async function getStaticProps({ params }) {
+  const post = await getPostBySlug(params.slug);
+  
+  return {
+    props: { post },
+    revalidate: 3600 // Revalidate every hour
+  };
+}
+
+export async function getStaticPaths() {
+  const posts = await getAllPosts();
+  
+  return {
+    paths: posts.map(post => ({ params: { slug: post.slug } })),
+    fallback: 'blocking' // Generate pages on-demand
+  };
+}
+```
+
+### Incremental Static Regeneration (ISR)
+```jsx
+export async function getStaticProps() {
+  const data = await fetchData();
+  
+  return {
+    props: { data },
+    revalidate: 60 // Regenerate page every 60 seconds
+  };
+}
+```
+
+## Bundle Analysis and Optimization
+
+Analyze your bundle to identify optimization opportunities:
+
+```bash
+# Install bundle analyzer
+npm install @next/bundle-analyzer
+
+# Add to next.config.js
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true'
+});
+
+module.exports = withBundleAnalyzer({
+  // Your Next.js config
+});
+
+# Run analysis
+ANALYZE=true npm run build
+```
+
+## Font Optimization
+
+Optimize web fonts for better performance:
+
+```jsx
+// pages/_document.js
+import { Html, Head, Main, NextScript } from 'next/document';
+
+export default function Document() {
+  return (
+    <Html>
+      <Head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  );
+}
+```
+
+## Caching Strategies
+
+Implement effective caching:
+
+```jsx
+// next.config.js
+module.exports = {
+  async headers() {
+    return [
+      {
+        source: '/api/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, s-maxage=60, stale-while-revalidate=300'
+          }
+        ]
+      }
+    ];
+  }
+};
+```
+
+## Performance Monitoring
+
+Track performance metrics:
+
+```jsx
+// pages/_app.js
+export function reportWebVitals(metric) {
+  switch (metric.name) {
+    case 'CLS':
+    case 'FID':
+    case 'FCP':
+    case 'LCP':
+    case 'TTFB':
+      // Send to analytics
+      console.log(metric);
+      break;
+    default:
+      break;
+  }
+}
+```
+
+## Database and API Optimization
+
+### Connection Pooling
+```jsx
+// lib/db.js
+import { Pool } from 'pg';
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  max: 20, // Maximum connections
+  idleTimeoutMillis: 30000,
+  connectionTimeoutMillis: 2000
+});
+
+export default pool;
+```
+
+### API Route Optimization
+```jsx
+// pages/api/posts.js
+export default async function handler(req, res) {
+  // Set cache headers
+  res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300');
+  
+  try {
+    const posts = await getPosts();
+    res.status(200).json(posts);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch posts' });
+  }
+}
+```
+
+## Key Performance Metrics to Track
+
+1. **First Contentful Paint (FCP)**: < 1.8s
+2. **Largest Contentful Paint (LCP)**: < 2.5s
+3. **First Input Delay (FID)**: < 100ms
+4. **Cumulative Layout Shift (CLS)**: < 0.1
+5. **Time to First Byte (TTFB)**: < 600ms
+
+## Best Practices Summary
+
+- ✅ Use Next.js Image component for all images
+- ✅ Implement proper code splitting
+- ✅ Leverage static generation when possible
+- ✅ Optimize fonts and third-party scripts
+- ✅ Monitor Core Web Vitals
+- ✅ Use proper caching strategies
+- ✅ Minimize JavaScript bundle size
+- ✅ Optimize database queries
+
+## Conclusion
+
+Performance optimization is an ongoing process. Start with the biggest impact optimizations like image optimization and static generation, then gradually implement more advanced techniques based on your specific use case.
+
+Remember to measure before and after implementing optimizations to ensure they're actually improving performance for your users.
+
+---
+
+*Have you implemented any of these techniques? Share your performance optimization experiences!*

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Menu, X, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { basicInfo } from "@/lib/generated-data";
-import { ThemeToggle } from "@/components/theme-toggle";
+
 
 export default function Navbar() {
   const [currentTime, setCurrentTime] = useState("");
@@ -71,7 +71,6 @@ export default function Navbar() {
             <Button variant="ghost" size="sm" asChild>
               <Link href="/">Home</Link>
             </Button>
-
             <Button variant="ghost" size="sm" asChild>
               <Link href="#experience">Experience</Link>
             </Button>
@@ -80,6 +79,9 @@ export default function Navbar() {
             </Button>
             <Button variant="ghost" size="sm" asChild>
               <Link href="#skills">Skills</Link>
+            </Button>
+            <Button variant="ghost" size="sm" asChild>
+              <Link href="#blog">Blog</Link>
             </Button>
             <Button variant="ghost" size="sm" asChild>
               <Link href="#contact">Contact</Link>
@@ -109,8 +111,7 @@ export default function Navbar() {
               </Button>
             </a>
 
-            {/* Theme toggle */}
-            <ThemeToggle />
+
 
             {/* Mobile menu button */}
             <Button
@@ -160,6 +161,13 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               <Link href="#skills">Skills</Link>
+            </Button>
+            <Button
+              variant="ghost"
+              asChild
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Link href="#blog">Blog</Link>
             </Button>
             <Button
               variant="ghost"
