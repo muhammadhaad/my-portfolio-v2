@@ -3,16 +3,16 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { siteConfig } from "@/lib/data"
+import { basicInfo } from "@/lib/generated-data"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} - ${siteConfig.title}`,
-  description: siteConfig.description,
+  title: `${basicInfo.name} - ${basicInfo.title}`,
+  description: basicInfo.description,
   keywords: ["Software Developer", "Full Stack Developer", "Next.js", "Flutter", "NestJS", "Portfolio"],
-  authors: [{ name: siteConfig.name, url: "https://github.com/muhammadhaad" }],
-  creator: siteConfig.name,
+  authors: [{ name: basicInfo.name, url: "https://github.com/muhammadhaad" }],
+  creator: basicInfo.name,
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
@@ -22,22 +22,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://muhammadhaad.vercel.app",
-    title: `${siteConfig.name} - ${siteConfig.title}`,
-    description: siteConfig.description,
-    siteName: `${siteConfig.name} Portfolio`,
+    title: `${basicInfo.name} - ${basicInfo.title}`,
+    description: basicInfo.description,
+    siteName: `${basicInfo.name} Portfolio`,
     images: [
       {
         url: "/images/profile.png",
         width: 400,
         height: 400,
-        alt: siteConfig.name,
+        alt: basicInfo.name,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} - ${siteConfig.title}`,
-    description: siteConfig.description,
+    title: `${basicInfo.name} - ${basicInfo.title}`,
+    description: basicInfo.description,
     creator: "@muhammadhaad",
     images: ["/images/profile.png"],
   },

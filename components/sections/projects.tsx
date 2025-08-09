@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Apple, PlaySquare } from "lucide-react";
-import { projectsData } from "@/lib/data";
+import { projectsData } from "@/lib/generated-data";
 import Image from "next/image";
 
 // Group technologies by category
@@ -67,6 +67,7 @@ function categorizeTechnologies(techs: string[]): CategorizedTechnologies {
 }
 
 export default function Projects() {
+  
   return (
     <section id="projects" className="py-16 scroll-mt-16">
       <h2 className="text-3xl font-bold mb-12">Featured Projects</h2>
@@ -112,7 +113,7 @@ export default function Projects() {
                         {(techs as string[]).map(
                           (tech: string, idx: number) => (
                             <Badge
-                              key={idx}
+                              key={`${category}-${tech}-${idx}`}
                               variant="outline"
                               className="text-xs px-1.5 py-0"
                             >

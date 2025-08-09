@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/lib/data";
+import { basicInfo } from "@/lib/generated-data";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Navbar() {
@@ -62,7 +62,7 @@ export default function Navbar() {
           {/* Logo/Name */}
           <div className="flex items-center">
             <Link href="/" className="font-bold text-lg">
-              {siteConfig.name.split(" ")[0]}
+              {basicInfo.name.split(" ")[0]}
             </Link>
           </div>
 
@@ -88,12 +88,18 @@ export default function Navbar() {
 
           {/* Right side items (always visible) */}
           <div className="flex items-center gap-2">
-            <div className="text-sm text-muted-foreground hidden sm:block">
-              {currentTime}
+            <div 
+              className="text-sm text-muted-foreground hidden sm:block"
+              aria-label={`Current time: ${currentTime}`}
+              role="status"
+              aria-live="polite"
+            >
+              <span aria-hidden="true">{currentTime}</span>
+              <span className="sr-only">Current time: {currentTime}</span>
             </div>
 
             <a
-              href={siteConfig.cvDownloadUrl}
+              href={basicInfo.cvDownloadUrl}
               download="Muhammad_Haad_CV.pdf"
               className="hidden sm:block"
             >
@@ -163,7 +169,7 @@ export default function Navbar() {
               <Link href="#contact">Contact</Link>
             </Button>
             <a
-              href={siteConfig.cvDownloadUrl}
+              href={basicInfo.cvDownloadUrl}
               download="Muhammad_Haad_CV.pdf"
               onClick={() => setIsMenuOpen(false)}
             >

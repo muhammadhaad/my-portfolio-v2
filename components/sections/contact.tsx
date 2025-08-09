@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Mail, MessageSquare, Github, Linkedin, Phone } from "lucide-react"
-import { siteConfig, createMailtoLink } from "@/lib/data"
+import { basicInfo, createMailtoLink } from "@/lib/generated-data"
 import Link from "next/link"
 
 export default function Contact() {
@@ -40,8 +40,8 @@ export default function Contact() {
 
               <p className="text-sm text-muted-foreground text-center">
                 Or email me directly at:{" "}
-                <a href={`mailto:${siteConfig.email}`} className="underline hover:text-primary">
-                  {siteConfig.email}
+                <a href={`mailto:${basicInfo.email}`} className="underline hover:text-primary">
+                  {basicInfo.email}
                 </a>
               </p>
             </div>
@@ -62,36 +62,36 @@ export default function Contact() {
             <div>
               <h3 className="font-semibold">Email</h3>
               <p className="text-muted-foreground">
-                <a href={`mailto:${siteConfig.email}`} className="hover:underline">
-                  {siteConfig.email}
+                <a href={`mailto:${basicInfo.email}`} className="hover:underline">
+                  {basicInfo.email}
                 </a>
               </p>
             </div>
             <div>
               <h3 className="font-semibold">Phone</h3>
-              <p className="text-muted-foreground">{siteConfig.phone}</p>
+              <p className="text-muted-foreground">{basicInfo.phone}</p>
             </div>
             <div>
               <h3 className="font-semibold">Location</h3>
-              <p className="text-muted-foreground">{siteConfig.location}</p>
+              <p className="text-muted-foreground">{basicInfo.location}</p>
             </div>
             <div>
               <h3 className="font-semibold">Social Media</h3>
               <div className="flex gap-4 mt-2">
                 <Button variant="outline" size="icon" asChild>
-                  <a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer">
+                  <a href={basicInfo.social.github} target="_blank" rel="noopener noreferrer">
                     <Github className="h-5 w-5" />
                     <span className="sr-only">GitHub</span>
                   </a>
                 </Button>
                 <Button variant="outline" size="icon" asChild>
-                  <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer">
+                  <a href={basicInfo.social.linkedin} target="_blank" rel="noopener noreferrer">
                     <Linkedin className="h-5 w-5" />
                     <span className="sr-only">LinkedIn</span>
                   </a>
                 </Button>
                 <Button variant="outline" size="icon" asChild>
-                  <a href={`tel:${siteConfig.phone.replace(/[^0-9+]/g, "")}`}>
+                  <a href={`tel:${basicInfo.phone.replace(/[^0-9+]/g, "")}`}>
                     <Phone className="h-5 w-5" />
                     <span className="sr-only">Phone</span>
                   </a>

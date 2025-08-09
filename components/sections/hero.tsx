@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Download, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { siteConfig, createMailtoLink } from "@/lib/data";
+import { basicInfo, createMailtoLink } from "@/lib/generated-data";
 import { useState } from "react";
 
 export default function Hero() {
@@ -31,15 +31,15 @@ export default function Hero() {
           <div className="space-y-6 order-2 lg:order-1 hero-content">
             <p className="text-lg text-muted-foreground">Hi! My Name is</p>
             <h1 className="text-5xl md:text-7xl font-bold">
-              {siteConfig.name}
+              {basicInfo.name}
             </h1>
             <p className="text-xl max-w-2xl text-muted-foreground">
-              {siteConfig.description}
+              {basicInfo.description}
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
               <Link
-                href={siteConfig.social.github}
+                href={basicInfo.social.github}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -49,7 +49,7 @@ export default function Hero() {
                 </Button>
               </Link>
               <Link
-                href={siteConfig.social.linkedin}
+                href={basicInfo.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -75,9 +75,9 @@ export default function Hero() {
                 src={
                   imgError
                     ? "/placeholder.svg?height=400&width=400"
-                    : siteConfig.profileImage
+                    : basicInfo.profileImage
                 }
-                alt={siteConfig.name}
+                alt={basicInfo.name}
                 fill
                 className="object-cover"
                 priority

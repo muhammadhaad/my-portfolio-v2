@@ -23,6 +23,3 @@ This platform was designed to revolutionize healthcare access by providing patie
 - Integration with hospital systems
 
 The application was built using Flutter for cross-platform compatibility and used WebSockets for real-time updates. Firebase was used for authentication and notifications, while MySQL handled the database requirements.
-\`\`\`
-
-Let's also update the transportation-system.md file to include a live URL:

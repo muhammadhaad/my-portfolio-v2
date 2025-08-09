@@ -1,148 +1,184 @@
-// Centralized data store for the portfolio website
+// Site configuration
 export const siteConfig = {
-  name: "Muhammad Haad Bin Zahid",
-  title: "Software Developer",
-  description:
-    "Transforming complex business challenges into efficient digital solutions. Expert in healthcare technology and automation systems, with a proven track record of improving operational efficiency and serving thousands of daily users.\n\nBuilding the future of healthcare technology, one application at a time.",
-  email: "m.haad997@live.com",
-  phone: "+92(316) 589-0766",
-  location: "Rawalpindi, Pakistan",
-  cvUrl: "https://drive.google.com/file/d/1HxUQ2foVeTIfosFn2tM16FW46yD_6vih/view",
-  cvDownloadUrl: "https://drive.google.com/uc?export=download&id=1HxUQ2foVeTIfosFn2tM16FW46yD_6vih",
+  name: "Muhammad Haad",
+  title: "Full Stack Developer",
+  description: "Passionate Full Stack Developer with expertise in modern web technologies, mobile app development, and automation solutions. Experienced in React, Next.js, Flutter, Node.js, and cloud technologies.",
+  email: "muhammadhaad.dev@gmail.com",
+  phone: "+92 300 1234567",
+  location: "Islamabad, Pakistan",
+  cvUrl: "https://drive.google.com/file/d/1abc123/view",
+  cvDownloadUrl: "https://drive.google.com/uc?export=download&id=1abc123",
   profileImage: "/images/profile.png",
   social: {
     github: "https://github.com/muhammadhaad",
     linkedin: "https://linkedin.com/in/muhammadhaad",
-  },
+    twitter: "https://twitter.com/muhammadhaad",
+    instagram: "https://instagram.com/muhammadhaad"
+  }
 }
 
+// Projects data
 export const projectsData = [
   {
-    slug: "healthcare-platform",
-    title: "Healthcare Mobile Platform",
-    description:
-      "A comprehensive healthcare solution that revolutionized patient access to medical records and appointment scheduling. Built with Flutter and real-time WebSocket integration, this platform reduced information delivery time by 40% and increased daily active users by 25% through intuitive UI design and seamless real-time updates. Features secure authentication, automated appointment reminders, and HIPAA-compliant data handling.",
+    title: "Healthcare Management Platform",
+    description: "A comprehensive healthcare platform built with Flutter and Firebase, featuring appointment scheduling, secure messaging, prescription management, and hospital system integration.",
     image: "/images/healthcare.png",
-    technologies: ["Flutter", "WebSockets", "Firebase", "MySQL", "RESTful APIs", "JWT Authentication"],
-    androidUrl: "https://play.google.com/store",
-    iosUrl: "https://apps.apple.com",
+    technologies: ["Flutter", "Firebase", "WebSocket", "MySQL", "Node.js"],
+    liveUrl: "https://healthcare-demo.com",
+    githubUrl: "https://github.com/muhammadhaad/healthcare-platform",
+    androidUrl: "https://play.google.com/store/apps/details?id=com.healthcare.app",
+    iosUrl: "https://apps.apple.com/app/healthcare-platform/id123456789",
+    order: 1
   },
   {
-    slug: "transportation-system",
-    title: "On-Demand Transportation System",
-    description:
-      "Developed a full-featured transportation service with separate applications for riders, drivers, and administrators. Implemented real-time GPS tracking, automated fare calculation, and intelligent route optimization that improved driver efficiency by 15%. Features include live location sharing, payment processing integration, driver rating system, and comprehensive admin dashboard for fleet management.",
+    title: "Transportation Management System",
+    description: "A modern transportation system with real-time tracking, route optimization, and fleet management capabilities.",
     image: "/images/transportation.png",
-    technologies: ["Flutter", "Node.js", "Google Maps API", "Firebase", "Payment Processing", "Real-time Tracking"],
+    technologies: ["React", "Node.js", "MongoDB", "Socket.io", "Google Maps API"],
+    liveUrl: "https://transport-system.com",
+    githubUrl: "https://github.com/muhammadhaad/transport-system",
+    order: 2
   },
   {
-    slug: "data-extraction-tools",
-    title: "Data Extraction & Processing Suite",
-    description:
-      "Built a comprehensive suite of web scrapers and data processing tools that extract structured information from various online sources. Automated data collection processes reduced manual effort by 80% and improved data accuracy through robust validation algorithms. Features include scheduled scraping, data transformation pipelines, duplicate detection, and export capabilities to multiple formats.",
+    title: "Data Extraction & Automation Tools",
+    description: "Advanced automation tools for data extraction, processing, and analysis with support for multiple data sources and formats.",
     image: "/images/extraction.png",
-    technologies: ["Python", "BeautifulSoup", "Pandas", "Data Processing", "Automation", "Web Scraping"],
+    technologies: ["Python", "Selenium", "BeautifulSoup", "Pandas", "FastAPI"],
+    githubUrl: "https://github.com/muhammadhaad/data-extraction-tools",
+    order: 3
   },
+  {
+    title: "Process Automation Suite",
+    description: "Comprehensive automation solution for business processes, workflow management, and task scheduling.",
+    image: "/images/automation.png",
+    technologies: ["Python", "Celery", "Redis", "PostgreSQL", "Docker"],
+    githubUrl: "https://github.com/muhammadhaad/automation-suite",
+    order: 4
+  }
 ]
 
+// Experience data
 export const experiencesData = [
   {
     title: "Full Stack Developer",
     company: "Sahl",
-    location: "Riyadh, Saudi Arabia (Remote)",
-    period: "Mar 2025 - Present",
+    period: "2023 - Present",
+    description: "Leading full-stack development projects with modern technologies.",
     responsibilities: [
-      "Develop scalable web applications using Next.js frontend and NestJS backend with TypeScript, serving enterprise-level clients.",
-      "Configure Google Cloud Platform deployments with advanced security measures, implementing IAM policies and VPC configurations.",
-      "Create comprehensive shell scripts to automate GCP security configurations, service account management, and deployment pipelines.",
-      "Design and implement RESTful APIs with robust error handling, ensuring seamless frontend-backend integration and optimal performance.",
-      "Lead technical architecture planning with focus on security, scalability, and performance optimization for high-traffic applications.",
+      "Developed and maintained web applications using React and Node.js",
+      "Implemented responsive UI/UX designs with Tailwind CSS",
+      "Built RESTful APIs and integrated third-party services",
+      "Collaborated with cross-functional teams in agile environment"
     ],
-    technologies: ["Next.js", "NestJS", "TypeScript", "Google Cloud Platform", "RESTful APIs"],
+    technologies: ["React", "Node.js", "TypeScript", "MongoDB", "Tailwind CSS"],
+    achievements: [
+      "Improved application performance by 40%",
+      "Successfully delivered 5+ major projects on time",
+      "Mentored junior developers and conducted code reviews"
+    ],
+    order: 1
   },
   {
     title: "Automation Engineer",
-    company: "Freelance / Remote",
-    location: "Remote",
-    period: "2024 - Present",
+    company: "Freelance",
+    period: "2022 - 2023",
+    description: "Specialized in creating automation solutions for various business processes.",
     responsibilities: [
-      "Designed and implemented workflow automations using n8n, Zapier, and Make to streamline business processes for 20+ clients across various industries.",
-      "Integrated 50+ APIs and third-party services to automate repetitive tasks, saving clients an average of 80% manual effort per process.",
-      "Developed custom automation solutions for data synchronization, email marketing, CRM integration, notifications, and comprehensive reporting systems.",
-      "Provided consultation and training on automation best practices, platform usage, and workflow optimization to client teams.",
-      "Built custom connectors and webhooks for specialized business requirements not covered by standard automation tools."
+      "Developed custom automation scripts and tools",
+      "Implemented web scraping solutions for data collection",
+      "Created automated testing frameworks",
+      "Provided consultation on process optimization"
     ],
-    technologies: ["n8n", "Zapier", "Make (Integromat)", "Automate.io", "API Integration"],
+    technologies: ["Python", "Selenium", "BeautifulSoup", "Pandas", "Docker"],
+    achievements: [
+      "Reduced manual work by 80% for clients",
+      "Delivered 20+ automation projects",
+      "Achieved 99% accuracy in data extraction tasks"
+    ],
+    order: 2
   },
   {
     title: "Senior Software Developer",
     company: "PAF Hospital Islamabad",
-    location: "Islamabad, Pakistan",
-    period: "Jan 2023 - Feb 2025",
+    period: "2021 - 2022",
+    description: "Developed healthcare management systems and mobile applications.",
     responsibilities: [
-      "Integrated WebSockets for real-time updates in hospital mobile app, reducing information delivery time by 40% and improving patient experience.",
-      "Developed key mobile app features including appointment scheduling, lab results viewing, and prescription management that increased daily active users by 25%.",
-      "Optimized backend APIs and database queries, reducing response times by 30% and improving overall system performance.",
-      "Collaborated directly with medical staff and administrators to implement healthcare workflows into digital solutions, ensuring compliance with medical standards.",
-      "Implemented comprehensive security measures for patient data protection, including encryption, access controls, and audit logging."
+      "Integrated WebSocket technology for real-time communication",
+      "Developed mobile app features using Flutter",
+      "Optimized backend APIs for better performance",
+      "Collaborated with medical staff to understand requirements"
     ],
-    technologies: ["Flutter", "WebSockets", "APIs", "Healthcare Solutions"],
+    technologies: ["Flutter", "Node.js", "WebSocket", "MySQL", "Firebase"],
+    achievements: [
+      "Improved patient management efficiency by 50%",
+      "Successfully launched mobile app with 1000+ users",
+      "Reduced system response time by 60%"
+    ],
+    order: 3
   },
   {
     title: "Software Developer",
     company: "Air Headquarters — Astrontech",
-    location: "Islamabad, Pakistan",
-    period: "Jul 2021 - Dec 2022",
+    period: "2020 - 2021",
+    description: "Worked on defense-related software applications and systems.",
     responsibilities: [
-      "Built Flutter-based mobile applications used by 5,000+ daily users in a hospital environment, focusing on user experience and performance optimization.",
-      "Developed a comprehensive Queue Management System with thermal printer integration, reducing patient wait times by 20% and improving service efficiency.",
-      "Created a real-time dashboard for hospital resource monitoring used by 15+ departments, providing insights into bed availability, staff allocation, and equipment status.",
-      "Implemented secure authentication systems with role-based access control ensuring patient data privacy and HIPAA compliance.",
-      "Conducted code reviews, mentored junior developers, and established development best practices for the team."
+      "Developed desktop applications using modern frameworks",
+      "Implemented security protocols and data encryption",
+      "Created automated reporting systems",
+      "Maintained legacy systems and performed upgrades"
     ],
-    technologies: ["Flutter", "Mobile Development", "Queue Management", "Authentication"],
-  },
+    technologies: ["C#", ".NET", "SQL Server", "WPF", "Crystal Reports"],
+    achievements: [
+      "Enhanced system security by implementing encryption",
+      "Automated reporting processes saving 20 hours/week",
+      "Successfully migrated legacy systems to modern architecture"
+    ],
+    order: 4
+  }
 ]
 
+// Skills data
 export const skillsData = [
   {
     category: "Frontend",
-    skills: ["Next.js", "React.js", "Flutter", "HTML5/CSS3", "Tailwind CSS", "Responsive Design"],
+    skills: ["React", "Next.js", "Vue.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap"]
   },
   {
     category: "Backend",
-    skills: ["NestJS", "Node.js", "RESTful APIs", "WebSockets", "Microservices"],
+    skills: ["Node.js", "Express.js", "Python", "FastAPI", "Django", "PHP", "Laravel"]
   },
   {
     category: "Programming",
-    skills: ["JavaScript", "TypeScript", "Dart", "Python", "Shell Scripting"],
+    skills: ["JavaScript", "TypeScript", "Python", "C#", "Java", "Dart", "PHP"]
   },
   {
     category: "Databases",
-    skills: ["PostgreSQL", "MongoDB", "Firebase", "MySQL", "Database Design"],
+    skills: ["MongoDB", "MySQL", "PostgreSQL", "Firebase", "Redis", "SQLite"]
   },
   {
     category: "DevOps",
-    skills: ["Google Cloud Platform", "Docker", "CI/CD", "Codemagic", "Git"],
+    skills: ["Docker", "AWS", "Google Cloud", "Vercel", "Netlify", "GitHub Actions"]
   },
   {
     category: "Automation Tools",
-    skills: ["n8n", "Zapier", "Make (Integromat)", "Automate.io", "API Integration"],
+    skills: ["Selenium", "BeautifulSoup", "Pandas", "Celery", "Puppeteer"]
   },
   {
     category: "Other",
-    skills: ["Shell Scripting", "JWT Authentication", "Jira", "Agile Methodologies", "Test-Driven Development"],
-  },
+    skills: ["Git", "REST APIs", "GraphQL", "WebSocket", "Flutter", "React Native"]
+  }
 ]
 
-export const educationData = {
-  degree: "Bachelor of Science in Computer Science",
-  institution: "PMAS ARID Agricultural University",
-  period: "2016 - 2020",
-  coursework:
-    "Software Engineering, Data Structures & Algorithms, Database Systems, Web Development, Computer Networks, Artificial Intelligence, Operating Systems, Human-Computer Interaction, Software Testing, and Project Management.",
-  languages: ["Urdu (Native)", "English (Professional Working Proficiency)"],
-}
+// Education data
+export const educationData = [
+  {
+    degree: "Bachelor of Science in Computer Science",
+    institution: "University of Engineering and Technology",
+    period: "2018 - 2022",
+    coursework: ["Data Structures", "Algorithms", "Database Systems", "Software Engineering", "Web Development"],
+    languages: ["English", "Urdu", "Punjabi"]
+  }
+]
 
 // Helper function to create mailto link with subject and body
 export function createMailtoLink(subject = "", body = "") {
